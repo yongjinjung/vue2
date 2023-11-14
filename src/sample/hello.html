@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{"안녕하세요~ " + myText + "님"}}</p>
+        <p>{{myText.substr(0,3)}}</p>
+        <p>{{this.myBool? this.b():this.a() }}</p>
+        <p v-text="myText"></p>
+        <p v-html="myText"></p>
+        <p>{{myNumber * 2}}</p>
+        <p v-text="myNumber"></p>
+        <p v-html="myNumber"></p>
+        <p>{{myBool}}</p>
+        <p v-text="myBool"></p>
+        <p v-html="myBool"></p>
+        <p>{{array[1]}}</p>
+        <p>{{objData['name']}}</p>
+        <p>{{objData.age}}</p>
+        <p>{{objData}}</p>
+        <p>{{users}}</p>
+        <p>{{users[0]['price']}}</p>
+        <p>{{users[1].name}}</p>
+        <p>{{users[1].price}}</p>
+        <p>{{$data}}</p>
+        <hr>
+            <li v-for="(item, key) in $data">{{key}} : {{ item}}</li>
+        </hr>
+    </div>
+
+    <script>
+
+        const extProperti = [
+              {name:'김씨', price:600}
+            , {name:'이씨', price:700}
+            , {name:'박씨', price:800}
+        ]
+
+        new Vue({
+            el: '#app',
+            data : {//데이터의 종류 숫자, 문자, 불린 Vue도 javascript와 같이 입력된 값에 따라서 데이터형을 자동으로 결정
+                myText: '<h1>hello!!!</h1>',
+                myNumber: 1234567,
+                myBool: false,
+                array: ['1', '2', '3', '4'],
+                objData : {
+                    name: '정용진',
+                    age: 41,
+                    addr: '경기도 의정부시 가금로 34번길 23 102동'
+                },
+                users : extProperti
+            },
+            methods : {
+                a : function(){
+                    return '1aa'
+                },
+                b : function(){
+                    return '2bb'
+                }
+
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .strike-through{
+            text-decoration: line-through;
+            color:lightgray;
+        }
+
+        .blue-underline {
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p> <a v-bind:href="link">네이버로연결</a></p>
+        <p><img v-bind:src="imgSrc">이미지 표시</img></p>
+        <p v-bind:align="left">왼쪽정렬</p>
+        <p v-bind:align="right">오른쪽정렬</p>
+        <p v-bind:align="center">가운데정렬</p>
+        <p v-bind:style="{color: style.color}">인라인 스타일로 글자색 빨간색으로</p>
+        <p v-bind:style="{fontSize: style.fontSize, color: style.color, backgroundColor: style.backgroundColor}">인라인 스타일로 글자크기 150% 크게 빨간색으로 배경은 노란색으로</p>
+        <p v-bind:class="blueUnderline">blue-underline class 지정</p>
+        <p v-bind:class="[blueUnderline, strikeThrough]">blue-underline, strike-through class 지정</p>
+    </div>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            link: 'http://www.naver.com',
+            imgSrc: './facel.png',
+            left: 'left',
+            right: 'right',
+            center: 'center',
+            style: {
+                color: 'red',
+                backgroundColor: 'yellow',
+                fontSize: '150%',
+            },
+            blueUnderline: 'blue-underline',
+            strikeThrough: 'strike-through',
+
+
+        },
+        methods: '',
+    });
+</script>
+</body>
+</html>

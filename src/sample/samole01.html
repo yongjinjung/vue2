@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ myText }}</p>
+        <div class="formBox">
+            <label>제목 : </label><input type="text" v-on:chaged>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                myText: 'Hello!!!'
+            }
+        });
+
+    </script>
+</body>
+
+
+
+</html>

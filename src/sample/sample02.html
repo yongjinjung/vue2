@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{ text }}</h1>
+    <p>{{ myText }}</p>
+    <p v-html="myHtml"></p>
+    <p>숫자 : {{myNumber}}</p>
+    <p>{{ '부울형 : ' + myBool }}</p>
+    <p>배열 : {{myArray}}</p>
+    <p>오브젝트 : {{ myObject }}</p>
+    <p>Data : {{ $data }}</p>
+    <hr>
+        <li v-for="(item, key) in $data">{{key}} : {{item}}</li>
+    </hr>
+
+</div>
+<script>
+52
+    new Vue({
+        el: '#app',
+        data: {
+            text: '다양한 데이터의 출력',
+            myText: 'Vue를 배원 봅시다. 이렇게 그냥 출력할 수도 있고',
+            myHtml: '<h3> 태그를 넣어서 출력할 수도 있습니다.</h3>',
+            myNumber: 123456,
+            myBool: true,
+            myArray: [1,2,3,4],
+            myObject: [
+                {name: '다줄링', price:600}
+                ,{name: '얼그레이', price:700}
+                ,{name: '실론', price:500}
+            ],
+
+        },
+        methods: {
+
+        },
+
+    });
+</script>
+</body>
+</html>

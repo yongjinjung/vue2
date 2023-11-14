@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="isVisible">체크박스가 ON</p>
+    <p v-else>체크박스가 OFF</p>
+    <label for="chk">
+        <input type="checkbox" v-model="isVisible" id="chk">표시
+    </label>
+    <button v-on:click="reversal">반전</button>
+</div>
+<script>
+    new Vue({
+
+        el: '#app',
+        data: {
+            isData: false,
+            isVisible: false,
+        },
+        methods:{
+            reversal: function(){
+                this.isData = !this.isData;
+            }
+        }
+    });
+</script>
+</body>
+</html>

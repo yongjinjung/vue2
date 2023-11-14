@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="../stylesheet.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+
+<div id="app">
+  <p>count : {{count}} </p>
+  <button v-on:click="countUp">1씩증가</button>
+  <button v-on:click="countUpParam(2)">2씩증가</button>
+  <input type="text" v-model="userCount">
+  <button v-on:click="countUpParam(parseInt(userCount))">사용자 지정 증가</button>
+</div>
+<hr>
+<h2>[Enter]키가 눌렸을 때</h2>
+<div id="app2">
+    <p>{{myText}}</p>
+    <input type="text" v-on:keyup.enter="showAlert" v-model="myText">
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      count: 0,
+      userCount: 0,
+        myText: '',
+    },
+    methods: {
+      countUp: function (){
+        this.count++;
+      },
+      countUpParam: function(param){
+        this.count += param;
+      },
+        showAlert: function (){
+          alert('Enter를 입력했습니다.');
+        }
+    },
+
+  });
+
+  new Vue({
+      el: '#app2',
+      data: {
+          count: 0,
+          userCount: 0,
+          myText: '',
+      },
+      methods: {
+          countUp: function (){
+              this.count++;
+          },
+          countUpParam: function(param){
+              this.count += param;
+          },
+          showAlert: function (){
+              alert('Enter를 입력했습니다.');
+          }
+      },
+
+  });
+</script>
+</body>
+</html>

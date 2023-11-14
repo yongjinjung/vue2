@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<div id="app">
+    <p>클릭하면 1씩 증가하는 예제</p>
+    {{count}}
+    <button v-on:click="oneClick(1)" v-bind:disabled="isCheck">1씩증가</button>
+    <button v-on:click="oneClick(2)" v-bind:disabled="isCheck">2씩증가</button>
+</div>
+
+<div id="app2">
+    <!-- 키 수식자를 지정하지 않으면 아무 키나 입력해도 메소드가 실행되어 버리게 되므로 특정 키를 입력했을 때만 반응하도록 하기 위해 키 수식자를 지정합니다.-->
+    <input type="text" v-on:keyup.enter="fnEnter" v-model="searchText">
+    <input type="text" v-on:keyup.shift.enter="fnTab">
+    <input type="text" v-on:keyup.down.49="fnDown">
+    <input type="text" >
+    <hr>
+    <ul>
+        <li v-for="(value, key ) in $data">{{key }} : {{value}}</li>
+    </ul>
+</div>
+<script>
+
+    const good = function() {
+        alert('좋아');
+    }
+
+    new Vue({
+        el: '#app',
+        data: {
+            isCheck: false,
+            count: 0,
+        },
+        methods: {
+            oneClick: function (value){
+                this.isCheck = true;
+                this.count += value;
+                good();
+            }
+        }
+
+    });
+
+    new Vue({
+        el: '#app2',
+        data: {
+            searchText: '',
+        },
+        methods: {
+            fnEnter: function (value){
+                alert('fnEnter');
+            },
+            fnTab: function (value){
+                alert('fnTab');
+            },
+            fnDown: function (value){
+                alert('fnDown');
+            },
+        }
+
+    });
+</script>
+</body>
+</html>

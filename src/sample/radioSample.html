@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .strike-through{
+            text-decoration: line-through;
+            color:lightgray;
+        }
+
+        .blue-underline {
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <label for="red">레드
+            <input type="radio" value="red" id="red"  v-model="picked">
+        </label>
+        <label for="green">그린
+            <input type="radio" value="green" id="green"  v-model="picked">
+        </label>
+        <label for="blue">블루
+            <input type="radio" value="blue" id="blue"  v-model="picked">
+        </label>
+        {{picked}}
+    </div>
+    <div id="app2">
+        <label for="1"><input type="radio" value="file1.png" id="1" v-modle="filename"></label>
+        <label for="2"><input type="radio" value="file1.png" id="2" v-modle="filename"></label>
+        <label for="3"><input type="radio" value="file1.png" id="3" v-modle="filename"></label>
+    </div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            picked:'red',
+        },
+        methods: {},
+    });
+</script>
+</body>
+</html>

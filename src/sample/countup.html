@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+    <h2>클릭하면 카운터가 올라갑니다.</h2>
+    <div id="app">
+        <p>{{ count }}화{{ text }}</p>
+        <button v-on:click="countUp">카운터 업</button>
+        <button v-on:click="countDown">카운트 다운</button>
+    </div>
+    <div id="app2">
+        <p>{{ count }}화{{ text }}</p>
+        <button v-on:click="countUp" value="">카운터 업</button>
+        <button v-on:click="countDown">카운트 다운</button>
+    </div>
+    <input type="text">
+    <div></div>
+    <textarea></textarea>
+    <div></div>
+    <select>
+            <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+<script>
+    var v = new Vue({
+        el: "#app",
+        data: {
+            count: 0
+            ,text: '334'
+        },
+        methods: {
+            countUp: function (){
+                this.count++;
+            },
+            countDown: function(){
+                if(this.count > 0){
+                    this.count--;
+                }
+            }
+        }
+    });
+
+
+    var v = new Vue({
+        el: "#app2", //element id select
+        data: {      //element 안에 머스태시 {{}} 프로퍼티명과 바인드
+            count: 0
+            ,text: '334'
+        },
+        methods: { //element 이벤트 메소드
+            countUp: function (){
+                this.text = '+2 증가 되었습니다.'
+                this.count = this.count+2;
+            },
+            countDown: function(){
+                if(this.count > 0){
+                    this.text = '-2 감소 되었습니다.'
+                    this.count = this.count-2;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+</head>
+<body>
+<div id="app">
+    <h1>간단한 계산기</h1>
+    <hr>
+    <input type="text" v-model.number="num1"><input type="text" v-model.number="num2">
+    <span> = {{sum}}</span><br>
+    <button v-on:click="cal1">+</button>
+    <button v-on:click="cal2">-</button>
+    <button v-on:click="cal3">/</button>
+    <button v-on:click="cal4">*</button>
+</div>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            num1:0,
+            num2:0,
+            sum: 0,
+        },
+        methods: {
+            cal1: function(){
+                this.sum = this.num1 + this.num2;
+            },
+            cal2: function(){
+                this.sum = this.num1- this.num2;
+            },
+            cal3: function(){
+                this.sum = this.num1 / this.num2;
+            },
+            cal4: function(){
+                this.sum = this.num1 * this.num2;
+            },
+        },
+
+    });
+</script>
+</body>
+</html>

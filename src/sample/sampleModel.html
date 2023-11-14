@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .strike-through{
+            text-decoration: line-through;
+            color:lightgray;
+        }
+
+        .blue-underline {
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" placeholder="이름" v-model="myName">
+    <p>나는 {{myName}} 입니다.</p>
+</div>
+<div id="app2">
+    <textarea name="" id="" cols="30" rows="10" v-model="myText"></textarea>
+    <p>문장은, {{myText}}</p>
+    <p>문자수는 {{myText.length}} 자입니다.</p>
+</div>
+
+<div id="app3">
+
+    <input type="checkbox" name="" id="" v-model="myCheck1">
+    <span>신라면{{myCheck1}}</span>
+    <input type="checkbox" name="" id="" v-model="myCheck2">
+    <span>진라면{{myCheck2}}</span>
+    <input type="checkbox" name="" id="" v-model="myCheck3">
+    <span>열라면{{myCheck3}}</span>
+
+    <input type="checkbox" name="" value="red" v-model="myChecks">
+    <span>바이크{{myChecks}}</span>
+    <input type="checkbox" name="" value="blue" v-model="myChecks">
+    <span>자전거{{myChecks}}</span>
+    <input type="checkbox" name="" value="white" v-model="myChecks">
+    <span>등산{{myChecks}}</span>
+    <hr>
+    <label for="">
+        <input type="checkbox" name="" id="" v-model="myAgree">동의합니다.
+    </label>
+    <button v-bind:disabled="!myAgree">송신</button>
+    <button v-bind:disabled="myAgree==false">전송</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            myName: '',
+
+        },
+        methods: {
+
+        },
+    });
+
+    new Vue({
+        el: '#app2',
+        data: {
+            myText: '',
+        },
+        methods: {
+
+        },
+    });
+
+    new Vue({
+        el: '#app3',
+        data: {
+            myCheck1: true,
+            myCheck2: true,
+            myCheck3: false,
+            myChecks: [],
+            myAgree: false,
+        },
+        methods: {
+
+        }
+    });
+</script>
+</body>
+</html>

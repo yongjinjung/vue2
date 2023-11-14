@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .strike-through{
+            text-decoration: line-through;
+            color:lightgray;
+        }
+
+        .dark {
+            background-color:gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <p style="color:#E80">문자색 직접 지정</p>
+        <p v-bind:style="{color:style.color}">문자색을 v-bind로 지정</p>
+        <hr />
+        <p style="font-size: 200%">글자 크기 직접 지정</p>
+        <p v-bind:style="{fontSize: style.fontSize}">글자 크기 v-bind로 지정</p>
+        <hr />
+        <p style="background-color: aqua">배경색 집적 지정</p>
+        <p id="aa"
+           v-bind:style="{backgroundColor: style.backgroundColor}"
+           v-on:click="clicka"
+        >배경색 v-bind로 지정</p>
+        <p v-bind:class="myClass"
+        >싱글클래스</p>
+        <p v-bind:class="[myClass, myClass2]"
+        >복수클래스</p>
+        <p v-bind:class="{'strike-through': isON, 'dark':true}"
+        >isON 복수클래스</p>
+    </div>
+
+<script>
+    new Vue({
+        el: '#app'
+        ,data: {
+            style:{
+                color: '#E08000',
+                fontSize: '200%',
+                backgroundColor: 'aqua'
+            },
+            myClass: 'strike-through',
+            myClass2: 'dark',
+            isON: true
+        }
+        ,methods:{
+            clicka: function(e){
+                console.log(e.srcElement.style.backgroundColor);
+                e.srcElement.style.backgroundColor = 'red'
+            },
+            classChage : function (e){
+
+                e.srcElement.class = 'dark'
+            }
+        }
+    });
+</script>
+</body>
+</html>

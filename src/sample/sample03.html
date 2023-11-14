@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="imgLink">
+            <img v-bind:src="fileName" width="400" height="400">
+        </a>
+        <p v-bind:align="textAlign" style="border: 1px solid #007dff">텍스<br>트정렬</p>
+        <p v-bind:style="{color: sytle.color}">111</p>
+        <p v-bind:style="{fontSize: sytle.fontSize}">111</p>
+        <p v-bind:style="{backgroundColor: sytle.backgroundColor}">111</p>
+
+    </div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            textAlign: 'right',
+            imgLink: 'http://www.naver.com',
+            fileName: 'facel.png',
+            sytle: {
+                color: 'red',
+                fontSize: '11pt',
+                backgroundColor: 'yellow',
+            }
+        }
+    });
+</script>
+</body>
+</html>

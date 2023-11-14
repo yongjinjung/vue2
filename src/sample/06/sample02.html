@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li  v-for="(value, key) in user">
+            {{key}} : {{value}}
+        </li>
+        <li  v-for="(value, key) in addr">
+            {{key}} : {{value}}
+        </li>
+        <li v-for="item in myArray">
+            item : {{item}}
+        </li>
+        <li v-for="obj in objArray">
+            {{obj.name}} : {{obj.price}} 원
+        </li>
+    </ul>
+
+</div>
+<script>
+
+    const user = {name:'정용진', age: 40}
+    const addr = {addr1: '경기도 의정부시 가금로 34번길', addr2: '102동 2204호'}
+    new Vue({
+        el: '#app'
+        , data: {
+            count:0,
+            user,
+            addr,
+            myArray: ['1','2','3'],
+            objArray: [
+                {name: '단팥 호빵', price: 500},
+                {name: '김치 호빵', price: 600},
+                {name: '치즈 호빵', price: 700},
+            ]
+        }
+        , methods:{}
+    });
+</script>
+</body>
+</html>

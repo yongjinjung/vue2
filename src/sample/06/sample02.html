@@ -19,7 +19,14 @@
             item : {{item}}
         </li>
         <li v-for="obj in objArray">
+
             {{obj.name}} : {{obj.price}} 원
+        </li>
+        <li v-for="n in 9">
+            5 X {{n}} ={{n*5}}
+        </li>
+        <li v-for="(index, item) in myArray">
+            {{index}} : {{item}}
         </li>
     </ul>
 

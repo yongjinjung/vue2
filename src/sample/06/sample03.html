@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+    <style>
+        table{
+            width: 50%;
+            text-align: right;
+        }
+        table th{
+            padding: 12px;
+            border-bottom: 2px solid darkgray;
+        }
+        table td{
+            padding: 12px;
+        }
+        table tr:nth-of-type(even){
+            background-color: rgba(0,0,255,0.1);
+        }
+        table th:nth-child(1){
+            text-align: center;
+        }
+
+        table td:nth-child(1){
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <h3>관심 받고 있는 언어 랭킹</h3>
+    <table>
+        <thead>
+        <th v-for="lang in header">{{lang}}</th>
+        </thead>
+        <tbody>
+        <tr v-for="rank in ranking">
+            <td v-for="data in rank">{{data}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p></p>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            header: ['프로그램언어','2018','2013','2008','2003','1998'],
+            ranking: [
+                ['Java',1,2,1,1,16],
+                ['C',2,1,2,2,1],
+                ['C++',3,4,3,3,2],
+                ['Python',1,2,1,1,16],
+                ['JavaScript',7,10,8,7,20],
+            ],
+        },
+        methods: {
+
+        }
+    });
+</script>
+</body>
+</html>

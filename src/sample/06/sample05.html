@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="../stylesheet.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="item in myArray">{{item}}</li>
+  </ul>
+  <button v-on:click="addList('[맨뒤에 추가]')">맨 위에 추가</button>
+  <button v-on:click="addObj(3, '[추가]')">네번째 추가</button>
+  <button v-on:click="changObj(0, '[변경]')">첫번째 변경</button>
+  <button v-on:click="deleteObj(1)">두번재 삭제</button>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      myArray:['첫번째','두번째','세번째','네번째','다섯번째']
+    },
+    methods: {
+      addList: function (value){
+        this.myArray.push(value);
+      },
+      addObj: function (index, value){
+        this.myArray.splice(index, 0, value)
+      },
+      changObj: function (index, value){
+        this.myArray.splice(index, 1, value);
+      },
+      deleteObj: function (index){
+        this.myArray.splice(index, 1)
+      },
+    }
+
+  });
+</script>
+</body>
+</html>

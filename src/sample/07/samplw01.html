@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>Google charts로 원그래프를 그리는 예제</h2>
+        <div id="chart_div" style="width: 100%; border: 1px solid #2c3e50;"></div>
+        <ul>
+            <li v-for="(item, index) in orgData" v-if="index > 0">{{item[0]}} : {{item[1]}}
+                <button v-on:click="addOne(index, 1)">좋아요</button>
+                <button v-on:click="addOne(index, -1)">싫어요</button>
+            </li>
+        </ul>
+    </div>
+<script>
+
+    const orgData = [
+        ['종류', '개수'],
+        ['갈비탕', 4],
+        ['오므라이스', 5],
+        ['짬뽕', 1],
+        ['비빔밥', 3],
+        ['메밀소바', 1],
+    ]
+
+    const fnCallDraw = function(){
+        //google.visualization
+        const data = google.visualization.arrayToDataTable(orgData);
+        const options = {title: '선호하는 점심', 'is3D': true};
+        const chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(fnCallDraw);
+
+    new Vue({
+        el: '#app',
+        data: {
+            orgData
+        },
+        methods: {
+            addOne: function (i, val){
+                let obj = orgData[i];
+                obj[1] += val
+                this.orgData.splice(i, 1, obj);
+                fnCallDraw();
+            }
+        },
+        computed: {},
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.4.0/marked.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <textarea name="" id="" cols="30" rows="10" v-model="text"></textarea>
+    <div v-html="textView">
+
+    </div>
+</div>
+<script !src="">
+    new Vue({
+        el: '#app',
+        data: {text:''},
+        methods: '',
+        computed: {
+            textView : function () {
+                return marked(this.text);
+            }
+        },
+        watch: '',
+    });
+</script>
+
+</body>
+</html>

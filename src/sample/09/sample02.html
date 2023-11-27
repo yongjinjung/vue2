@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        /* 나타나고 있을 때와 사라질 때는 0.5초*/
+        .v-enter-active, .v-leave-active{
+            transition: 4.5s;
+        }
+        /* 나타나기 전의 상태와 사라진 상태는 투명도가 0, 밑으로 20 이동*/
+        .v-enter, .v-leave-to{
+            opacity: 0;
+            transform: translateY(20px)
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <label for="">
+        <input type="checkbox" name="" id="" v-model="isOk">
+    </label>
+    <transition>
+        <p v-if="isOk">표시/비표시의 애니메이션!</p>
+    </transition>
+</div>
+<script !src="">
+    new Vue({
+        el: '#app',
+        data: {
+            isOk: false
+        },
+        methods:{},
+        computed: {},
+        watch:{},
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        /* 나타나고 있을 때와 사라질 때는 0.5초*/
+        .v-enter-active, .v-leave-active{
+            transition: 1s;
+        }
+        /* 나타나기 전의 상태와 사라진 상태는 투명도가 0, 밑으로 20 이동*/
+        .v-enter, .v-leave-to{
+            opacity: 0;
+            transform: translateX(20px)
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <transition-group>
+        <li v-for="item in dataArray" v-bind:key="item">{{item}}</li>
+    </transition-group>
+    <label for=""><input type="text" v-model="addItem" placeholder="추가할 리스트"></label>
+    <button v-on:click="addList">추가</button>
+    <button v-on:click="removeLast">맨뒤 1개 삭제</button>
+</div>
+<script !src="">
+    new Vue({
+        el: '#app',
+        data: {
+            isOk: false,
+            dataArray:[],
+            addItem: ''
+        },
+        methods:{
+            addList: function () {
+                this.dataArray.push(this.addItem);
+                this.addItem = '';
+            },
+            removeLast: function () {
+                const lastIdx = this.dataArray.length-1;
+                this.dataArray.splice(lastIdx, 1);
+            }
+        },
+        computed: {},
+        watch:{},
+    });
+</script>
+</body>
+</html>
